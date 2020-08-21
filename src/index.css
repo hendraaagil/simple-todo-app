@@ -21,8 +21,37 @@ button {
 }
 
 button {
-  width: 100%;
   font-family: 'Raleway', sans-serif;
+}
+
+.btn-large {
+  width: 100%;
+}
+
+.btn-large:hover {
+  transform: scale(0.98);
+  transition: all 0.3s;
+}
+
+.collection-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.collection-item:hover {
+  background-color: #eee;
+  transition: all 0.3s;
+  cursor: default;
+}
+
+i {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.fa-trash:hover {
+  transform: scale(1.2);
+  transition: all 0.3s;
 }
 
 @media (max-width: 475px) {

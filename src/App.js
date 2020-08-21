@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Todos from './Todos';
 import AddTodo from './AddTodo';
+import Footer from './Footer';
 
 class App extends Component {
   state = {
@@ -34,6 +35,7 @@ class App extends Component {
         <h1 className="center blue-text">Todo List App</h1>
         <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
         <AddTodo addTodo={this.addTodo} />
+        <Footer />
       </div>
     );
   }
