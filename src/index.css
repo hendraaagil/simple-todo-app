@@ -20,7 +20,8 @@ button {
   font-weight: 600;
 }
 
-button {
+button,
+input {
   font-family: 'Raleway', sans-serif;
 }
 
