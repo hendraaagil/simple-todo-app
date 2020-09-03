@@ -10,7 +10,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <i class="fab fa-github"></i> GitHub
+          <i className="fab fa-github"></i> GitHub
         </a>
       </p>
       <p className="center">
