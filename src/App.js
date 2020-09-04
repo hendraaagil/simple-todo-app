@@ -1,12 +1,9 @@
-/** @jsx jsx */
-import { useState } from 'react';
-import { css, jsx } from '@emotion/core';
-import { useTheme } from 'emotion-theming';
+import React, { useState } from 'react';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 import Footer from './components/Footer';
 
-const App = ({ isDark, setIsDark }) => {
+const App = () => {
   const [state, setState] = useState({
     todos: [
       { id: 1, content: 'Do homework' },
@@ -31,28 +28,25 @@ const App = ({ isDark, setIsDark }) => {
       todos,
     });
   };
-  const theme = useTheme();
+
+  const [theme, setTheme] = useState(true);
 
   return (
-    <div
-      className="todo-app container"
-      css={css`
-        background-color: ${theme.background};
-        color: ${theme.text};
-      `}
-    >
-      <h1 className="center blue-text">Todo List App</h1>
-      <button
-        className="btn-large grey lighten-5 blue-text text-darken-2"
-        onClick={() => {
-          setIsDark(!isDark);
-        }}
-      >
-        Change to {isDark ? 'light' : 'dark'} mode
-      </button>
-      <Todos todos={state.todos} deleteTodo={deleteTodo} />
-      <AddTodo addTodo={addTodo} />
-      <Footer />
+    <div className={theme ? 'grey lighten-5' : 'grey darken-4'}>
+      <div className="todo-app container">
+        <h1 className="center blue-text">Todo List App</h1>
+        <button
+          className="btn-large grey lighten-5 blue-text text-darken-2"
+          onClick={() => {
+            setTheme(!theme);
+          }}
+        >
+          Change to {theme ? 'dark' : 'light'} mode
+        </button>
+        <Todos todos={state.todos} deleteTodo={deleteTodo} />
+        <AddTodo addTodo={addTodo} />
+        <Footer />
+      </div>
     </div>
   );
 };
