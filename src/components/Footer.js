@@ -1,8 +1,14 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = ({ theme }) => {
   return (
-    <div className="footer">
+    <div
+      className={
+        theme
+          ? 'footer grey-text text-darken-4'
+          : 'footer grey-text text-lighten-5'
+      }
+    >
       <p className="center">
         Show project on{' '}
         <a

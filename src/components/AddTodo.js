@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AddTodo = (props) => {
+const AddTodo = ({ addTodo }) => {
   const [state, setState] = useState({
     content: '',
   });
@@ -13,10 +13,14 @@ const AddTodo = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addTodo(state);
-    setState({
-      content: '',
-    });
+    if (state.content === '') {
+      alert('Please fill out the field!');
+    } else {
+      addTodo(state);
+      setState({
+        content: '',
+      });
+    }
   };
 
   return (
@@ -24,7 +28,7 @@ const AddTodo = (props) => {
       <form onSubmit={handleSubmit}>
         <label>Add new todo : </label>
         <input type="text" onChange={handleChange} value={state.content} />
-        <button className="btn-large light-blue darken-2">Add</button>
+        <button className="btn-large blue">Add</button>
       </form>
     </div>
   );

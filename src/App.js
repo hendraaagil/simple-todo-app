@@ -33,19 +33,19 @@ const App = () => {
 
   return (
     <div className={theme ? 'grey lighten-5' : 'grey darken-4'}>
-      <div className="todo-app container">
+      <div className="container">
         <h1 className="center blue-text">Todo List App</h1>
         <button
-          className="btn-large grey lighten-5 blue-text text-darken-2"
+          className="btn-large grey lighten-5 blue-text"
           onClick={() => {
             setTheme(!theme);
           }}
         >
           Change to {theme ? 'dark' : 'light'} mode
         </button>
-        <Todos todos={state.todos} deleteTodo={deleteTodo} />
+        <Todos todos={state.todos} deleteTodo={deleteTodo} theme={theme} />
         <AddTodo addTodo={addTodo} />
-        <Footer />
+        <Footer theme={theme} />
       </div>
     </div>
   );
