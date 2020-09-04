@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AddTodo = ({ addTodo }) => {
+const AddTodo = ({ addTodo, theme }) => {
   const [state, setState] = useState({
     content: '',
   });
@@ -27,7 +27,14 @@ const AddTodo = ({ addTodo }) => {
     <div>
       <form onSubmit={handleSubmit}>
         <label>Add new todo : </label>
-        <input type="text" onChange={handleChange} value={state.content} />
+        <input
+          type="text"
+          onChange={handleChange}
+          value={state.content}
+          className={
+            theme ? 'grey-text text-darken-4' : 'grey-text text-lighten-5'
+          }
+        />
         <button className="btn-large blue">Add</button>
       </form>
     </div>
