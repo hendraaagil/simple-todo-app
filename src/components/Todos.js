@@ -23,7 +23,15 @@ const Todos = ({ todos, deleteTodo, theme }) => {
       );
     })
   ) : (
-    <p className="center">You have no todo's left. Yay!</p>
+    <p
+      className={
+        theme
+          ? 'center grey-text text-darken-4'
+          : 'center grey-text text-lighten-5'
+      }
+    >
+      You have no todo's left. Yay!
+    </p>
   );
 
   return <div className="todos collection">{todoList}</div>;
