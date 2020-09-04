@@ -34,12 +34,18 @@ const App = () => {
   return (
     <div className={theme ? 'grey lighten-5' : 'grey darken-4'}>
       <div className="container">
-        <h1 className="center blue-text">Todo List App</h1>
+        <h1
+          className={
+            theme ? 'center blue-text' : 'center blue-text text-darken-3'
+          }
+        >
+          Todo List App
+        </h1>
         <button
           className={
             theme
-              ? 'btn-large grey lighten-5 blue-text'
-              : 'btn-large grey darken-3 blue-text'
+              ? 'btn-large btn-switch grey lighten-5 blue-text'
+              : 'btn-large btn-switch grey darken-3 blue-text'
           }
           onClick={() => {
             setTheme(!theme);

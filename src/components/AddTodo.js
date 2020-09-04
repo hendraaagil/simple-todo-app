@@ -35,7 +35,11 @@ const AddTodo = ({ addTodo, theme }) => {
             theme ? 'grey-text text-darken-4' : 'grey-text text-lighten-5'
           }
         />
-        <button className="btn-large blue">Add</button>
+        <button
+          className={theme ? 'btn-large blue' : 'btn-large blue darken-3'}
+        >
+          Add
+        </button>
       </form>
     </div>
   );
