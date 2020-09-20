@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { TodoContext } from '../contexts/TodoContext';
 
-const Todos = ({ todos, deleteTodo, theme }) => {
+const Todos = ({ theme }) => {
+  const { todos, dispatch } = useContext(TodoContext);
+
   const todoList = todos.length ? (
     todos.map((todo) => {
       return (
@@ -16,7 +19,7 @@ const Todos = ({ todos, deleteTodo, theme }) => {
           <i
             className="fas fa-trash red-text"
             onClick={() => {
-              deleteTodo(todo.id);
+              dispatch({ type: 'DELETE_TODO', id: todo.id });
             }}
           ></i>
         </div>

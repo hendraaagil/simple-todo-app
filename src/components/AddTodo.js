@@ -1,26 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { TodoContext } from '../contexts/TodoContext';
 
-const AddTodo = ({ addTodo, theme }) => {
-  const [state, setState] = useState({
-    content: '',
-  });
-
-  const handleChange = (e) => {
-    setState({
-      content: e.target.value,
-    });
-  };
+const AddTodo = ({ theme }) => {
+  const { dispatch } = useContext(TodoContext);
+  const [content, setContent] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (state.content === '') {
-      alert('Please fill out the field!');
-    } else {
-      addTodo(state);
-      setState({
-        content: '',
-      });
-    }
+    dispatch({
+      type: 'ADD_TODO',
+      todo: {
+        content,
+      },
+    });
+    setContent('');
   };
 
   return (
@@ -29,8 +22,8 @@ const AddTodo = ({ addTodo, theme }) => {
         <label>Add new todo : </label>
         <input
           type="text"
-          onChange={handleChange}
-          value={state.content}
+          onChange={(e) => setContent(e.target.value)}
+          value={content}
           className={
             theme ? 'grey-text text-darken-4' : 'grey-text text-lighten-5'
           }

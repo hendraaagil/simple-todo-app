@@ -2,33 +2,9 @@ import React, { useState } from 'react';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 import Footer from './components/Footer';
+import TodoContextProvider from './contexts/TodoContext';
 
 const App = () => {
-  const [state, setState] = useState({
-    todos: [
-      { id: 1, content: 'Do homework' },
-      { id: 2, content: 'Learn to code' },
-      { id: 3, content: 'Play a game' },
-    ],
-  });
-
-  const deleteTodo = (id) => {
-    const todos = state.todos.filter((todo) => {
-      return todo.id !== id;
-    });
-    setState({
-      todos,
-    });
-  };
-
-  const addTodo = (todo) => {
-    todo.id = Math.random();
-    let todos = [...state.todos, todo];
-    setState({
-      todos,
-    });
-  };
-
   const [theme, setTheme] = useState(true);
 
   return (
@@ -53,8 +29,10 @@ const App = () => {
         >
           Change to {theme ? 'dark' : 'light'} mode
         </button>
-        <Todos todos={state.todos} deleteTodo={deleteTodo} theme={theme} />
-        <AddTodo addTodo={addTodo} theme={theme} />
+        <TodoContextProvider>
+          <Todos theme={theme} />
+          <AddTodo theme={theme} />
+        </TodoContextProvider>
         <Footer theme={theme} />
       </div>
     </div>
