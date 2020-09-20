@@ -2,7 +2,7 @@
 
 ![Preview](public/img/preview.png)
 
-## To run app this in your machine
+## To run this app in your machine
 
 1. Clone this repository <br />
    `git clone git@github.com:hendraaagil/simple-todo-app.git`
