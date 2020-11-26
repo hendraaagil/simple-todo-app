@@ -63,6 +63,7 @@ form {
 }
 
 i {
+  margin-left: 4px;
   font-size: 16px;
   cursor: pointer;
 }
