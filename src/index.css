@@ -47,6 +47,13 @@ form {
 .collection-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.collection-item span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: auto;
 }
 
 .collection-item:hover {

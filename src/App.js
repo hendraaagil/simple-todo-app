@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 import Footer from './components/Footer';
@@ -6,6 +6,14 @@ import TodoContextProvider from './contexts/TodoContext';
 
 const App = () => {
   const [theme, setTheme] = useState(true);
+
+  useEffect(() => {
+    setTheme(JSON.parse(localStorage.getItem('theme')));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme));
+  }, [theme]);
 
   return (
     <div className={theme ? 'grey lighten-5' : 'grey darken-4'}>

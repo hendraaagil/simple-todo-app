@@ -27,6 +27,7 @@ const AddTodo = ({ theme }) => {
           className={
             theme ? 'grey-text text-darken-4' : 'grey-text text-lighten-5'
           }
+          required
         />
         <button
           className={theme ? 'btn-large blue' : 'btn-large blue darken-3'}
